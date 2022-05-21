@@ -3,7 +3,7 @@ WORKDIR application
 COPY .mvn .mvn
 COPY mvnw ./
 COPY pom.xml ./
-RUN ./mvnw dependency:go-offline
+RUN ./mvnw -fn verify
 COPY src src
 RUN ./mvnw package
 RUN java -Djarmode=layertools -jar target/*.jar extract
