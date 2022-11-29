@@ -13,11 +13,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureWebTestClient
 class DemoApplicationTests {
 
-    @Autowired
-    private WebTestClient webTestClient;
-
     @Test
-    void shouldReturnHello() {
+    void shouldReturnHello(@Autowired WebTestClient webTestClient) {
         var responseBody = webTestClient.get()
                 .uri("/")
                 .exchange()
