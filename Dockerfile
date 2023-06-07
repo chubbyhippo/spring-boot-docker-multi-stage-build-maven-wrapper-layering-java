@@ -1,4 +1,4 @@
-FROM bellsoft/liberica-openjdk-alpine:17 as builder
+FROM bellsoft/liberica-openjdk-alpine:17 AS builder
 WORKDIR application
 COPY .mvn .mvn
 COPY mvnw mvnw
