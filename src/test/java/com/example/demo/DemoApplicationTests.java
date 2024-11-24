@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class DemoApplicationTests {
 
     @Test
-    void shouldReturnHello(@Autowired WebTestClient webTestClient) {
+    void shouldReturnHelloUsingWebTestClient(@Autowired WebTestClient webTestClient) {
         var responseBody = webTestClient.get()
                 .uri("/")
                 .exchange()
