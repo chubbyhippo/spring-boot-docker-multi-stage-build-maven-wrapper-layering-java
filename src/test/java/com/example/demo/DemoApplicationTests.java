@@ -37,6 +37,7 @@ class DemoApplicationTests {
         var responseBody = webTestClient.get()
                 .uri("/")
                 .exchange()
+                .expectStatus().isOk()
                 .expectBody(String.class)
                 .returnResult()
                 .getResponseBody();
