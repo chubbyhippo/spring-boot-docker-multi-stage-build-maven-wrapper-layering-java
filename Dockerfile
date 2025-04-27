@@ -16,4 +16,8 @@ COPY --from=builder /builder/extracted/dependencies/ ./
 COPY --from=builder /builder/extracted/spring-boot-loader/ ./
 COPY --from=builder /builder/extracted/snapshot-dependencies/ ./
 COPY --from=builder /builder/extracted/application/ ./
-ENTRYPOINT ["java", "-jar", "application.jar"]
+
+#ENTRYPOINT ["java", "-jar", "application.jar"]
+
+# Add JVM options for remote debugging
+ENTRYPOINT ["java", "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005", "-jar", "application.jar"]
